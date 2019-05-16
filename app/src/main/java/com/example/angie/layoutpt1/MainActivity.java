@@ -1,5 +1,6 @@
 package com.example.angie.layoutpt1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView textLogin = (TextView) findViewById(R.id.txtUser);
-        final TextView textPassword = (TextView) findViewById(R.id.txtPass);
-        Button btnLogin = (Button) findViewById(R.id.btnLogin);
+        final TextView textLogin =  findViewById(R.id.txtUser);
+        final TextView textPassword =  findViewById(R.id.txtPass);
+        Button btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         textPassword.requestFocus();
                         break;
                     default:
-                        toastError.makeText(getApplicationContext(), "Success", toastError.LENGTH_LONG).show();
+                        startActivity(new Intent(MainActivity.this, MainClassList.class));
                         break;
                 }
             }
